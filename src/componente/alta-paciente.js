@@ -148,7 +148,7 @@ function PacienteAlta() {
             name="calle"
             placeholder="San Martín"
             onChange={handleChange}
-            value={form.calle}
+            value={form.domicilio.calle}
             required
           />
         </div>
@@ -163,7 +163,7 @@ function PacienteAlta() {
             name="numero"
             placeholder="202"
             onChange={handleChange}
-            value={form.numero}
+            value={form.domicilio.numero}
             required
           />
         </div>
@@ -178,7 +178,7 @@ function PacienteAlta() {
             name="localidad"
             placeholder="Santa Rosa"
             onChange={handleChange}
-            value={form.localidad}
+            value={form.domicilio.localidad}
             required
           />
         </div>
@@ -193,7 +193,7 @@ function PacienteAlta() {
             name="provincia"
             placeholder="La Pampa"
             onChange={handleChange}
-            value={form.provincia}
+            value={form.domicilio.provincia}
             required
           />
         </div>
