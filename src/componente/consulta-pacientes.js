@@ -8,6 +8,7 @@ import { useModal } from "../hooks/useModal";
 function PacientesList() {
   const [arrayPacientes, setArrayPacientes] = useState([]);
   const [error, setError] = useState(null);
+  const [paciente, setPaciente] = useState(null);
   const [isOpenForm, openModalForm, closeModalForm] = useModal(false);
 
   let url = "http://localhost:8080/pacientes";
@@ -23,7 +24,7 @@ function PacientesList() {
       }
     };
     getData(url);
-  }, []);
+  },[]);
 
   const deleteData = (paciente) => {
     let isDelete = window.confirm(
@@ -80,13 +81,14 @@ function PacientesList() {
                 <button
                   className="btn btn-sm btn-outline-warning"
                   type="button"
-                  onClick={openModalForm}
+                  onClick={() => {
+                    openModalForm()
+                    setPaciente(paciente)
+                  }}
                 >
                   Actualizar
                 </button>
-                <Modal isOpen={isOpenForm} closeModal={closeModalForm}>
-                  <FormUpDate paciente={paciente} />
-                </Modal>
+
                 <button
                   className="btn btn-sm btn-outline-danger m-2"
                   type="button"
@@ -99,6 +101,9 @@ function PacientesList() {
           ))}
         </tbody>
       </table>
+      <Modal isOpen={isOpenForm} closeModal={closeModalForm}>
+        {isOpenForm && <FormUpDate paciente={paciente} />}
+      </Modal>
     </div>
   );
 }

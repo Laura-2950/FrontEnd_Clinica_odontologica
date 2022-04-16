@@ -2,15 +2,16 @@ import { useState } from "react";
 
 export default function FormUpDate({ paciente }) {
 
-    const [form, setForm] = useState({ ...paciente });
+    const [form, setForm] = useState(paciente);
+
 
     console.log(paciente);
 
     let url = "http://localhost:8080/pacientes";
 
     const updateData = (paciente) => {
-        let endpoint = `${url}/${paciente.id}`;
-
+        let endpoint = `${url}`;
+        console.log(form);
         let options = {
             method: "PUT",
             body: JSON.stringify(form),
@@ -28,7 +29,6 @@ export default function FormUpDate({ paciente }) {
                     })
             )
             .catch((err) => err);
-            put(endpoint, options )
     };
 
     const handleChange = (e) => {
