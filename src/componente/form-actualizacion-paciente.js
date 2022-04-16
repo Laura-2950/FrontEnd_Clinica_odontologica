@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function FormUpDate({ paciente }) {
+export default function FormActualizacion({ paciente }) {
 
     const [form, setForm] = useState(paciente);
 

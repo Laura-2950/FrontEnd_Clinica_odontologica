@@ -88,7 +88,7 @@ export default function Navigation() {
                             </Link>
                             <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li>
-                                    <Link className="dropdown-item" to="index.html">
+                                    <Link className="dropdown-item" to="/alta_turno">
                                         Agregar Turnos
                                     </Link>
                                 </li>

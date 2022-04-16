@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import FormUpDate from "./formUpDate";
+import FormActualizacion from "./form-actualizacion-paciente";
 import Modal from "./Modal";
 import { useModal } from "../hooks/useModal";
 
@@ -24,7 +24,7 @@ function PacientesList() {
       }
     };
     getData(url);
-  },[]);
+  },[isOpenForm]);
 
   const deleteData = (paciente) => {
     let isDelete = window.confirm(
@@ -86,7 +86,7 @@ function PacientesList() {
                     setPaciente(paciente)
                   }}
                 >
-                  Actualizar
+                  Modificar
                 </button>
 
                 <button
@@ -102,7 +102,7 @@ function PacientesList() {
         </tbody>
       </table>
       <Modal isOpen={isOpenForm} closeModal={closeModalForm}>
-        {isOpenForm && <FormUpDate paciente={paciente} />}
+        {isOpenForm && <FormActualizacion paciente={paciente} />}
       </Modal>
     </div>
   );

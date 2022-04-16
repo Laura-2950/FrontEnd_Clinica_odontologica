@@ -1,37 +1,59 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import Modal from "./Modal";
+import FormActualizacion from "./form-actualizacion-turno.js";
+import { useModal } from "../hooks/useModal";
 
-function OdontologoList() {
-  const [arrayTurnos, setArrayTunos] = useState([]);
+function TurnoList() {
+  const [arrayTurnos, setArrayTurnos] = useState([]);
+  const [error, setError] = useState(null);
+  const [turno, setTurno] = useState(null);
+  const [isOpenForm, openModalForm, closeModalForm] = useModal(false);
+
+  let url = "http://localhost:8080/turnos";
 
   useEffect(() => {
-    let url = "http://localhost:8080/turnos";
     const getData = async (url) => {
       try {
         let res = await fetch(url);
         let data = await res.json();
-        setArrayTunos(data);
+        setArrayTurnos(data);
       } catch (err) {
-        setArrayTunos(null);
+        setArrayTurnos(null);
       }
     };
     getData(url);
   }, []);
 
+  const deleteData = (turno) => {
+    let isDelete = window.confirm(
+      `¿Estás seguro de querer eliminar el Turno para el paciente ${turno.paciente.apellido} con el odontologo ${turno.odontologo.apellido}?`
+    );
+
+    if (isDelete) {
+      let id = turno.id;
+      let endpoint = `${url}/${id}`;
+      let options = {
+        method: "DELETE",
+        headers: { "content-type": "application/json" },
+      };
+
+      fetch(endpoint, options).then((res) => {
+        if (res.err) {
+          setError(res);
+        }
+      });
+
+      let newData = arrayTurnos.filter((turno) => turno.id !== id);
+      setArrayTurnos(newData);
+    } else {
+      return;
+    }
+  };
+
   return (
     <div>
       <h1>Listado de Turnos</h1>
-      <form className="d-flex p-5 container-md">
-        <input
-          className="form-control me-2"
-          type="search"
-          placeholder="Buscar por id"
-          aria-label="Search"
-        />
-        <button className="btn btn-outline-success" type="submit">
-          Buscar
-        </button>
-      </form>
       <table className="table table-striped table-hover">
         <thead className="table-dark">
           <tr>
@@ -66,6 +88,7 @@ function OdontologoList() {
                 <button
                   className="btn btn-sm btn-outline-danger m-2"
                   type="button"
+                  onClick={() => deleteData(turno)}
                 >
                   Eliminar
                 </button>
@@ -74,8 +97,11 @@ function OdontologoList() {
           ))}
         </tbody>
       </table>
+      <Modal isOpen={isOpenForm} closeModal={closeModalForm}>
+        {isOpenForm && <FormActualizacion turno={turno} />}
+      </Modal>
     </div>
   );
 }
 
-export default OdontologoList;
+export default TurnoList;
