@@ -10,6 +10,7 @@ import TurnosList from './componente/consulta-turnos';
 import TurnoAlta from './componente/alta-turno';
 import Navigation from './componente/nav';
 import NotFound from './componente/pagina-error';
+import Login from './componente/login';
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
       <BrowserRouter>
       <Navigation />
       <Routes>
-        <Route path="/" element={<Home />} />
+      <Route path="/" element={<Login />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/odontologos" element={<OdontologoList />}/>
         <Route path="/alta_odontologo" element={<OdontologoAlta />}/>
         <Route path="/pacientes" element={<PacientesList />}/>

@@ -23,7 +23,7 @@ function TurnoList() {
       }
     };
     getData(url);
-  }, []);
+  }, [isOpenForm]);
 
   const deleteData = (turno) => {
     let isDelete = window.confirm(

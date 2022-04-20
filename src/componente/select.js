@@ -5,9 +5,6 @@ import Message from "./Message";
 const Select = ({ label, url, handleChange }) => {
   const { data, error, loading } = useFetch(url);
 
-
-
-
   if (!data) return null;
 
   if (error) {
