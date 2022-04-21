@@ -18,7 +18,7 @@ function App() {
       <BrowserRouter>
       <Navigation />
       <Routes>
-      <Route path="/" element={<Login />} />
+      <Route exact path="/" element={<Login />} />
         <Route path="/home" element={<Home />} />
         <Route path="/odontologos" element={<OdontologoList />}/>
         <Route path="/alta_odontologo" element={<OdontologoAlta />}/>

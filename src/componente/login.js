@@ -22,15 +22,16 @@ function Login() {
     
       const handleSubmit = (e) => {
         e.preventDefault();
-        fetch('http://localhost:8080/',{
+        console.log(e.target[0].value, e.target[1].value );
+        fetch('http://localhost:8080/register',{
           method: 'GET',
-          mode: 'no-cors',
           headers: {
-            'Content-Tipe' : 'application/json',
-            'Authoization' : 'Basic' + btoa(e.target[0].value + ':' + e.target[1].value)
+            'Content-Type' : 'application/json',
+            'Authorization' : 'Basic ' + btoa(e.target[0].value + ':' + e.target[1].value)
           },
         }).then(res=>{
           if(res.ok){
+            console.log(res);
             navigate("/home")
           }      
           
