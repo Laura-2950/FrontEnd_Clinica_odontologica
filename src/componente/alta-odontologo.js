@@ -1,5 +1,6 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+
 
 const initailForm = {
     nombre: "",
@@ -11,7 +12,7 @@ function OdontologoAlta() {
     const [form,setForm] = useState(initailForm);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
-    
+
 
     const createData = () => {
         setLoading(true);

@@ -81,7 +81,10 @@ function TurnoList() {
                 <button
                   className="btn btn-sm btn-outline-warning"
                   type="button"
-                  id={turno.id}
+                  onClick={() => {
+                    openModalForm()
+                    setTurno(turno)
+                  }}
                 >
                   Modificar
                 </button>

@@ -4,21 +4,17 @@ export default function FormActualizacion({ paciente }) {
 
     const [form, setForm] = useState(paciente);
 
-
-    console.log(paciente);
-
     let url = "http://localhost:8080/pacientes";
 
     const updateData = (paciente) => {
         let endpoint = `${url}`;
-        console.log(form);
         let options = {
             method: "PUT",
             body: JSON.stringify(form),
             headers: { "content-type": "application/json" },
         };
 
-        const put = fetch(endpoint, options)
+        fetch(endpoint, options)
             .then((res) =>
                 res.ok
                     ? res.json()

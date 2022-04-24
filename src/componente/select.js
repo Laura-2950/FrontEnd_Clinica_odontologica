@@ -18,12 +18,14 @@ const Select = ({ label, url, handleChange }) => {
 
   return (
     <>
-      <label htmlFor={label}>{label}</label>
+      <div className="col-md-5 m-4">
+        <label htmlFor={label}>{label}</label>
           {loading && <Loader/>}
-        <select className="form-select" aria-label="Default select example" id={label} name={label} onChange={handleChange}>
-          <option defaultValue>Seleccione un {label}</option>
+        <select className="form-select m-2" aria-label="Default select example" id={label} name={label} onChange={handleChange}>
           {data && data.map((dato)=><option key={dato.id} value={dato}>  {dato.apellido} {dato.nombre} - {dato.dni? dato.dni : dato.matricula} </option>)}
         </select>
+        <Message/>
+      </div>
     </>
   );
 };
