@@ -10,13 +10,13 @@ export default function Home() {
             </div>
             <div className="carousel-inner">
                 <div className="carousel-item active">
-                    <img src="img-0.jpg" className="d-block w-100" alt="..." />
+                    <img src="img0.jpg" className="d-block w-100" alt="..." />
                 </div>
                 <div className="carousel-item">
-                    <img src="img-2.jpg" className="d-block w-100" alt="..." />
+                    <img src="img2.jpg" className="d-block w-100" alt="..." />
                 </div>
                 <div className="carousel-item">
-                    <img src="img-3.jpg" className="d-block w-100" alt="..." />
+                    <img src="img3.jpg" className="d-block w-100" alt="..." />
                 </div>
             </div>
             <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
