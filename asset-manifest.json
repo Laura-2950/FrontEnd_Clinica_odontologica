@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/FrontEnd_Clinica_odontologica/static/css/main.acd49bab.css",
-    "main.js": "/FrontEnd_Clinica_odontologica/static/js/main.dc9a3be4.js",
+    "main.js": "/FrontEnd_Clinica_odontologica/static/js/main.b99e0a8a.js",
     "index.html": "/FrontEnd_Clinica_odontologica/index.html",
     "main.acd49bab.css.map": "/FrontEnd_Clinica_odontologica/static/css/main.acd49bab.css.map",
-    "main.dc9a3be4.js.map": "/FrontEnd_Clinica_odontologica/static/js/main.dc9a3be4.js.map"
+    "main.b99e0a8a.js.map": "/FrontEnd_Clinica_odontologica/static/js/main.b99e0a8a.js.map"
   },
   "entrypoints": [
     "static/css/main.acd49bab.css",
-    "static/js/main.dc9a3be4.js"
+    "static/js/main.b99e0a8a.js"
   ]
 }
